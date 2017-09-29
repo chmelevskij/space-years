@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import round from 'lodash.round'
 import EarthInput from './EarthInput.js'
 import YearTable from './YearTable.js'
 import './App.css';
@@ -30,13 +29,13 @@ class App extends Component {
   }
 
   calculateYears(event){
-    const earthYears = parseInt(event.target.value)
+    const earthYears = parseInt(event.target.value, 10)
     this.setState({earth: earthYears})
     let {planets} = this.state
 
     let ages = planets.map(planet => {
       const NAME = planet[0]
-      let planetAge = round(ORBITS[NAME] * earthYears, 2)
+      let planetAge = Math.round(ORBITS[NAME] * earthYears, 2)
       return [NAME, planetAge]
     })
 
@@ -53,7 +52,7 @@ class App extends Component {
           <h1 className="App-title">Get Your Age!</h1>
           <EarthInput calculateYears={this.calculateYears} />
         </header>
-        <main>
+        <main className="App-main">
           <YearTable planets={planets} />
         </main>
       </div>
