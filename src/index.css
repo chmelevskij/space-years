@@ -1,5 +1,17 @@
+html {
+  background-image: url('./converted-jeremy-thomas-98201.jpg');
+  background-position: center;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  min-height: 100vh;
 }
+
+#root {
+  min-height: 100vh;
+  background: radial-gradient(transparent, #212121);
+}
+

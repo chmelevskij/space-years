@@ -1,14 +1,10 @@
-.Earth {
+form {
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
 }
 
-label {
-  margin: 5px 10px;
-}
-
-.Earth-unit {
+span {
   margin: 5px 10px;
   display: flex;
   justify-content: space-between;
@@ -16,7 +12,11 @@ label {
   text-transform: capitalize;
 }
 
-.Earth-input {
+label {
+  margin: 5px 10px;
+}
+
+input {
   font-size: 1rem;
   border: none;
   background: none;
@@ -25,7 +25,7 @@ label {
   text-align: center;
 }
 
-.Earth-input:focus {
+input:focus {
   outline: none;
   border-bottom: dashed 1px;
 }

@@ -53,14 +53,12 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header className="App-header">
-          <div className="App-title-wrapper">
-            <h1 className="App-title">Get your space age!</h1>
-            <h2>Your earth age in:</h2>
-          </div>
+        <header>
+          <h1>Get your space age!</h1>
+          <h2>Your earth age in:</h2>
           <EarthInput calculateYears={this.calculateYears} earthAges={earth} />
         </header>
-        <main className="App-main">
+        <main>
           <YearTable planets={planets} />
         </main>
       </div>

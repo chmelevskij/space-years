@@ -2,7 +2,7 @@ import React from 'react'
 import './YearTable.css'
 
 const YearTable = ({planets}) => (
-  <table className="YearTable">
+  <table>
     <thead>
       <tr>
         <td><h3>Planet</h3></td>
@@ -10,12 +10,13 @@ const YearTable = ({planets}) => (
       </tr>
     </thead>
     <tbody>
-      {planets.map(planet => (
-        <tr key={planet[0]}>
-          <td>{planet[0]}</td>
-          <td>{Math.floor(planet[1])}</td>
-        </tr>
-      ))
+      {
+        planets.map(planet => (
+          <tr key={planet[0]}>
+            <td>{planet[0]}</td>
+            <td>{Math.floor(planet[1])}</td>
+          </tr>
+        ))
       }
     </tbody>
   </table>
