@@ -12,13 +12,13 @@ const ORBITS = {
 
 // number of average units in a year
 const EARTH = {
-  years: 1,
-  months: 12,
-  weeks: 52.04, // (4 *  7 * 52 +1) / 28  since leap years every 28 years make another week
-  days: 365.25,
-  hours: 8766,
-  minutes: 525960,
-  seconds: 31557600,
+  YEARS: 1,
+  MONTHS: 12,
+  WEEKS: 52.04, // (4 *  7 * 52 +1) / 28  SINCE LEAP YEARS EVERY 28 YEARS MAKE ANOTHER WEEK
+  DAYS: 365.25,
+  HOURS: 8766,
+  MINUTES: 525960,
+  SECONDS: 31557600,
 }
 
 export {ORBITS, EARTH}

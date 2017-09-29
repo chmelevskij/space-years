@@ -4,48 +4,49 @@ import YearTable from './YearTable.js'
 import {ORBITS, EARTH} from './constants.js'
 import './App.css';
 
+const initialState = {
+  earth: [
+    ["years", ""], ["months", ""],
+    ["weeks", ""], ["days", ""],
+    ["hours", ""], ["minutes", ""],
+    ["seconds", ""]
+  ],
+  planets: [
+    ["Mercury", ""], ["Venus", ""],
+    ["Mars", ""], ["Jupiter", ""],
+    ["Saturn", ""], ["Uranus", ""],
+    ["Neptune", ""], ["Pluto", ""]
+  ]
+}
 class App extends Component {
   constructor(){
     super()
-
-    this.state = {
-      earth: [
-        ["years", 0], ["months", 0],
-        ["weeks", 0], ["days", 0],
-        ["hours", 0], ["minutes", 0],
-        ["seconds", 0]
-      ],
-      planets: [
-        ["MERCURY", 0], ["VENUS", 0],
-        ["MARS", 0], ["JUPITER", 0],
-        ["SATURN", 0], ["URANUS", 0],
-        ["NEPTUNE", 0], ["PLUTO", 0]
-      ]
-    }
-
+    this.state = initialState
     this.calculateYears = this.calculateYears.bind(this)
   }
 
   calculateYears(event){
     let {planets, earth} = this.state
 
-    let units = event.target.name
+    let units = event.target.name.toUpperCase()
     let value = parseInt(event.target.value, 10)
 
     const earthYears = value / EARTH[units]
 
+    if(isNaN(value))  return this.setState(initialState)
+
     let earthAges = earth.map(unit => {
-      const name = unit[0]
-      let unitDuration = Math.round( EARTH[name] * earthYears )
-      return [name, unitDuration]
+      const NAME = unit[0].toUpperCase()
+      let unitDuration = Math.round( EARTH[NAME] * earthYears )
+      return [unit[0], unitDuration]
     })
 
     this.setState({earth: earthAges})
 
     let ages = planets.map(planet => {
-      const NAME = planet[0]
-      let planetAge = Math.round( earthYears / ORBITS[NAME], 2)
-      return [NAME, planetAge]
+      const NAME = planet[0].toUpperCase()
+      let planetAge = Math.round( earthYears / ORBITS[NAME])
+      return [planet[0], planetAge]
     })
 
     this.setState({planets: ages})
@@ -57,7 +58,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <div class="App-title-wrapper">
+          <div className="App-title-wrapper">
             <h1 className="App-title">Get your space age!</h1>
             <h2>Your earth age in:</h2>
           </div>
