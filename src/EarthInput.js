@@ -1,17 +1,17 @@
 import React from 'react'
 import './EarthInput.css'
 
-const EarthInput = ({calculateYears}) => {
+const EarthInput = ({calculateYears, earthAges}) => {
   const UNITS = ["years", "months", "weeks", "days", "hours", "minutes", "seconds"]
 
-  let inputs = UNITS.map(unit => (
-      <span key={unit} class="earth-unit">
+  let inputs = UNITS.map((unit, index) => (
+      <span key={unit} className="Earth-unit">
         <label htmlFor={unit}>Earth {unit}</label>
-        <input onChange={calculateYears} id={unit} type="number" min="0" max="150"/>
+        <input onChange={calculateYears} id={unit} name={unit} value={earthAges[index][1]} type="number" min="0"/>
       </span>
   ))
   return (
-    <form>
+    <form className="Earth">
       {inputs}
     </form>
   )

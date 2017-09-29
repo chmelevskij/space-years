@@ -1,3 +1,15 @@
+.Earth {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 label {
   margin: 5px 10px;
+}
+
+.Earth-unit {
+  margin: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-basis: 270px;
 }
