@@ -4,6 +4,7 @@ body {
 
 #root {
   min-height: 100vh;
+  background: radial-gradient(transparent, #212121);
 }
 
 html {
@@ -12,9 +13,8 @@ html {
 }
 
 .App {
-  background: radial-gradient(transparent, #212121);
+  padding: 20px;
   text-align: center;
-  min-height: 100vh;
   color: white;
 }
 
@@ -23,11 +23,17 @@ html {
 }
 
 .App-header {
+  background: rgba(0, 0, 0, 0.5);
+  max-width: 750px;
+  margin: auto;
   padding: 20px;
   color: white;
 }
 
 .App-main {
+  background: rgba(0, 0, 0, 0.5);
+  max-width: 750px;
+  margin: auto;
   padding: 20px;
   display: flex;
   justify-content: center;
