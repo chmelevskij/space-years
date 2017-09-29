@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import EarthInput from './EarthInput.js'
 import YearTable from './YearTable.js'
+import round from 'lodash.round'
 import {ORBITS, EARTH} from './constants.js'
-import './App.css';
+import './App.css'
 
 const initialState = {
   earth: [
@@ -36,7 +37,8 @@ class App extends Component {
 
     const update = (consts, operation) => unit => {
       const NAME = unit[0].toUpperCase()
-      let unitDuration = Math.round( operation(consts[NAME], earthYears))
+      let duration = operation(consts[NAME], earthYears)
+      let unitDuration = round(duration, 4)
       return [unit[0], unitDuration]
     }
 
@@ -66,4 +68,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App

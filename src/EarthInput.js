@@ -7,7 +7,15 @@ const EarthInput = ({calculateYears, earthAges}) => {
   let inputs = UNITS.map((unit, index) => (
       <span key={unit} className="Earth-unit">
         <label htmlFor={unit}>{unit}</label>
-        <input className="Earth-input" onChange={calculateYears} id={unit} name={unit} value={earthAges[index][1]} type="number" min="0"/>
+        <input 
+          className="Earth-input"
+          onChange={calculateYears}
+          id={unit}
+          name={unit}
+          value={earthAges[index][1] ? Math.floor(earthAges[index][1]) : "" }
+          type="number"
+          min="0"
+        />
       </span>
   ))
   return (

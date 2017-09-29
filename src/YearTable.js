@@ -1,7 +1,8 @@
 import React from 'react'
+import './YearTable.css'
 
 const YearTable = ({planets}) => (
-  <table>
+  <table className="YearTable">
     <thead>
       <tr>
         <td><h3>Planet</h3></td>
@@ -12,7 +13,7 @@ const YearTable = ({planets}) => (
       {planets.map(planet => (
         <tr key={planet[0]}>
           <td>{planet[0]}</td>
-          <td>{planet[1]}</td>
+          <td>{Math.floor(planet[1])}</td>
         </tr>
       ))
       }
