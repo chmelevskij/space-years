@@ -18,6 +18,7 @@ const initialState = {
     ["Neptune", ""], ["Pluto", ""]
   ]
 }
+
 class App extends Component {
   constructor(){
     super()
@@ -26,30 +27,23 @@ class App extends Component {
   }
 
   calculateYears(event){
-    let {planets, earth} = this.state
-
-    let units = event.target.name.toUpperCase()
     let value = parseInt(event.target.value, 10)
+    if(isNaN(value)) return this.setState(initialState)
 
+    let {planets, earth} = this.state
+    let units = event.target.name.toUpperCase()
     const earthYears = value / EARTH[units]
 
-    if(isNaN(value))  return this.setState(initialState)
-
-    let earthAges = earth.map(unit => {
+    const update = (consts, operation) => unit => {
       const NAME = unit[0].toUpperCase()
-      let unitDuration = Math.round( EARTH[NAME] * earthYears )
+      let unitDuration = Math.round( operation(consts[NAME], earthYears))
       return [unit[0], unitDuration]
-    })
+    }
 
-    this.setState({earth: earthAges})
+    earth = earth.map(update(EARTH, (a,b) => a * b))
+    planets = planets.map(update(ORBITS, (a,b) => b / a))
 
-    let ages = planets.map(planet => {
-      const NAME = planet[0].toUpperCase()
-      let planetAge = Math.round( earthYears / ORBITS[NAME])
-      return [planet[0], planetAge]
-    })
-
-    this.setState({planets: ages})
+    this.setState({planets, earth})
   }
 
   render() {
