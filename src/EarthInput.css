@@ -1,4 +1,7 @@
 .Earth {
+  max-width: 750px;
+  justify-content: center;
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
 }
@@ -11,5 +14,6 @@ label {
   margin: 5px 10px;
   display: flex;
   justify-content: space-between;
-  flex-basis: 270px;
+  flex-basis: 220px;
+  text-transform: capitalize;
 }

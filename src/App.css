@@ -1,18 +1,34 @@
-.App {
-  text-align: center;
+body {
+  min-height: 100vh;
 }
 
-.App-header {
-  background-color: #222;
-  padding: 20px;
+#root {
+  min-height: 100vh;
+}
+
+html {
+  background-image: url('./converted-jeremy-thomas-98201.jpg');
+  background-position: center;
+}
+
+.App {
+  background: radial-gradient(transparent, #212121);
+  text-align: center;
+  min-height: 100vh;
   color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+  text-transform: capitalize;
+}
+
+.App-header {
+  padding: 20px;
+  color: white;
 }
 
 .App-main {
+  padding: 20px;
   display: flex;
   justify-content: center;
 }

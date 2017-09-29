@@ -4,8 +4,8 @@ const YearTable = ({planets}) => (
   <table>
     <thead>
       <tr>
-        <td>Planet</td>
-        <td>Years</td>
+        <td><h3>Planet</h3></td>
+        <td><h3>Years</h3></td>
       </tr>
     </thead>
     <tbody>
